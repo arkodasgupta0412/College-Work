@@ -4,7 +4,7 @@
 /* this file creates a max Heap from an unordered array,
 further can be used for implementing Heap (ascending order)*/
 
-void max_heapify(int arr[], int n, int i, int *cmp)
+void max_heapify(int arr[], int n, int i, long long *cmp)
 {
     int l = 2 * i + 1;
     int r = 2 * i + 2;
@@ -25,7 +25,7 @@ void max_heapify(int arr[], int n, int i, int *cmp)
     }
 }
 
-void build_max_heap(int arr[], int n, int *cmp)
+void build_max_heap(int arr[], int n, long long *cmp)
 {
     for (int i = n / 2 - 1; i >= 0; i--)
     {

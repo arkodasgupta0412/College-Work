@@ -10,7 +10,7 @@ int main()
     scanf("%s", s);
     int ans = 0;
 
-    Stack *st;
+    Stack *st = (Stack *)malloc(sizeof(Stack));
     init_s(st);
     push(st, '\0');
 

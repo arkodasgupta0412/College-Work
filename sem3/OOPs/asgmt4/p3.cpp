@@ -92,7 +92,7 @@ public:
         return *this;
     }
 
-    Array operator[](int i)
+    int &operator[](int i)
     {
         return arr[i];
     }

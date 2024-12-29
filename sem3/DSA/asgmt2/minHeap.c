@@ -4,7 +4,7 @@
 /* this file creates a max Heap from an unordered array,
 further can be used for implementing Heap (descending order)*/
 
-void min_heapify(int arr[], int n, int i, int *cmp)
+void min_heapify(int arr[], int n, int i, long long *cmp)
 {
     int smallest = i;
     int l = 2 * i + 1;
@@ -25,7 +25,7 @@ void min_heapify(int arr[], int n, int i, int *cmp)
     }
 }
 
-void build_min_heap(int arr[], int n, int *cmp)
+void build_min_heap(int arr[], int n, long long *cmp)
 {
     for (int i = n / 2 - 1; i >= 0; i--)
     {

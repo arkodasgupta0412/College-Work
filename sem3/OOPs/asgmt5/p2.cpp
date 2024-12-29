@@ -8,10 +8,11 @@ class Book;
 class Member;
 class Student;
 class Faculty;
+class Transaction;
 class BookList;
 class MemberList;
-class Transaction;
 class TransactionLog;
+class Library;
 
 enum Status
 {
@@ -55,24 +56,25 @@ public:
 
     void show() const
     {
-        std::cout << b_id << "\t" << title << "\t" << author << "\t" << publisher << "\t" << price << "\t" << sno << "\t" << copy << std::endl;
+        std::cout << b_id << "\t\t\t" << title << "\t\t\t" << author << "\t\t\t" << publisher << "\t\t\t\t" << price << "\t\t\t" << sno << "\t\t\t" << copy << std::endl;
     }
 };
 
 class Member
 {
+
 protected:
     int m_id;
     std::string name;
     std::string email;
     std::string address;
-    int type;
     int issues;
+    int type;
 
 public:
-    Member() { issues = 0; }
+    // Member() : issues(0) {}
     Member(int m_id, const std::string name, const std::string email, const std::string address, int type)
-        : m_id(m_id), name(name), email(email), address(address), type(type) {}
+        : m_id(m_id), name(name), email(email), address(address), type(type), issues(0) {}
 
     virtual ~Member() = default;
     virtual bool checkIssueLimit(int) const = 0;
@@ -117,6 +119,7 @@ public:
     void addBook(void);
     void showBooks(void);
     friend class Transaction;
+    friend void performTransaction(BookList &, MemberList &, TransactionLog &);
 };
 
 class MemberList
@@ -133,6 +136,7 @@ public:
        return mlist;
     } */
     friend class Transaction;
+    friend void performTransaction(BookList &, MemberList &, TransactionLog &);
 };
 
 class Transaction
@@ -147,17 +151,19 @@ class Transaction
 
 public:
     Transaction() {}
-    Transaction(int m_id, int b_id, int sno, int type, Status status) : date(date), t_id(generateTransactionId()), m_id(m_id), b_id(b_id), sno(sno), type(type), status(status) {}
+    Transaction(int m_id, int b_id, int sno, int type, Status status)
+        : t_id(generateTransactionId()), m_id(m_id), b_id(b_id), sno(sno), type(type), status(status) {}
+
     bool operator==(Transaction &t)
     {
-        if (m_id == t.m_id && b_id == t.b_id && sno == t.sno && type == t.type && status == t.status)
-            return 1;
-        else
-            return 0;
+        return m_id == t.m_id && b_id == t.b_id && sno == t.sno && type == t.type && status == t.status;
     }
+
+    // Declare performTransaction as a friend function
+    friend void performTransaction(BookList &, MemberList &, TransactionLog &);
+
     Transaction generateTransactionSlip(BookList &, MemberList &);
-    void performTransaction(BookList &, MemberList &, TransactionLog &);
-    void showTransactionDetail(Transaction &);
+    void showTransactionDetail();
     int get_memberId() const { return m_id; }
     void set_status(Status s) { status = s; }
 };
@@ -166,24 +172,26 @@ class TransactionLog
 {
     std::vector<Transaction> log;
     int searchLog(int);
+    int empty() { return log.size() == 0; }
 
 public:
     void addLog(Transaction &t) { log.push_back(t); }
     void updateLog(Transaction &t);
-    void showTransaction(int);
+    void showTransaction(int); // show transaction history for a particular member
+    void showLog();            // show entire log
 };
 
 /*                                      FUNCTION IMPLEMENTATIONS                                               */
 void Member::show(int type)
 {
-    std::cout << m_id << "\t" << name << "\t" << email << "\t" << address << "\t";
+    std::cout << m_id << "\t\t\t" << name << "\t\t\t" << email << "\t\t\t" << address << "\t\t\t";
     if (!type)
     {
-        std::cout << issues << "\t" << STU_ISSUE_LIMIT << "\t" << "student\n";
+        std::cout << issues << "\t\t\t" << STU_ISSUE_LIMIT << "\t\t\t" << "student\n";
     }
     else
     {
-        std::cout << issues << "\t" << FAC_ISSUE_LIMIT << "\t" << "faculty\n";
+        std::cout << issues << "\t\t\t" << FAC_ISSUE_LIMIT << "\t\t\t" << "faculty\n";
     }
 }
 
@@ -243,7 +251,7 @@ void BookList::addBook()
 
 void BookList::showBooks()
 {
-    std::cout << "Book Id\tTitle\tAuthor\tPublisher\tPrice\tSno\tCopy\n";
+    std::cout << "Book Id\t\t\tTitle\t\t\tAuthor\t\t\tPublisher\t\t\tPrice\t\t\tSno\t\t\tCopy\n";
     for (int i = 0; i < blist.size(); i++)
     {
         blist[i].show();
@@ -303,7 +311,7 @@ void MemberList::addMember()
 
 void MemberList::showMembers()
 {
-    std::cout << "Member Id\tName\tEmail\tAddress\tIssues\tLimit\tType\n";
+    std::cout << "Member Id\t\tName\t\t\tEmail\t\t\tAddress\t\t\tIssues\t\t\tLimit\t\t\tType\n";
     for (int i = 0; i < mlist.size(); i++)
     {
         mlist[i]->show(mlist[i]->get_type());
@@ -384,11 +392,11 @@ Transaction Transaction::generateTransactionSlip(BookList &book_rec, MemberList 
     }
 }
 
-void Transaction::performTransaction(BookList &book_rec, MemberList &member_rec, TransactionLog &log)
+void performTransaction(BookList &book_rec, MemberList &member_rec, TransactionLog &log)
 {
     Transaction invalid(0, 0, 0, 0, RETURNED);
 
-    Transaction slip = generateTransactionSlip(book_rec, member_rec);
+    Transaction slip = Transaction().generateTransactionSlip(book_rec, member_rec);
     if (slip == invalid)
     {
         std::cout << "Transaction slip has not been generated due to some error\n";
@@ -401,21 +409,25 @@ void Transaction::performTransaction(BookList &book_rec, MemberList &member_rec,
     Member *member = member_rec.mlist[mIdx];
     Book &book = book_rec.blist[bIdx];
 
-    if (slip.type == 0)
+    if (slip.type == 0) // Issue transaction
     {
         member->set_issue(1);
         book.set_copy(-1);
         std::cout << "Book issued successfully.\n";
         log.addLog(slip);
     }
-
-    else
+    else // Return transaction
     {
         member->set_issue(-1);
         book.set_copy(1);
         std::cout << "Book returned successfully.\n";
         log.updateLog(slip);
     }
+}
+
+void Transaction::showTransactionDetail()
+{
+    std::cout << t_id << "\t\t\t" << m_id << "\t\t\t" << b_id << "\t\t\t" << sno << "\t\t\t" << ((status == PENDING) ? "Pending" : "Returned") << std::endl;
 }
 
 int TransactionLog::searchLog(int m_id)
@@ -434,72 +446,123 @@ void TransactionLog::updateLog(Transaction &t)
     log[k].set_status(RETURNED);
 }
 
-int main()
+void TransactionLog::showTransaction(int m_id)
+{
+    std::cout << "\nTransaction History for Member ID: " << m_id << std::endl;
+    std::cout << "Transaction Id\t\t\tMember Id\t\t\tBook Id\t\t\tSno\t\t\tStatus\n";
+
+    bool found = false;
+    for (int i = 0; i < log.size(); i++)
+    {
+        if (log[i].get_memberId() == m_id)
+        {
+            log[i].showTransactionDetail();
+            found = true;
+        }
+    }
+    if (!found)
+    {
+        std::cout << "No transactions found for the given Member ID.\n";
+    }
+}
+
+void TransactionLog::showLog(void)
+{
+    std::cout << "\nFull Transaction Log\n";
+    std::cout << "Transaction Id\tMember Id\tBook Id\tSerial No.\tStatus\n";
+
+    if (log.empty())
+    {
+        std::cout << "No transactions logged yet.\n";
+        return;
+    }
+
+    for (int i = 0; i < log.size(); i++)
+    {
+        log[i].showTransactionDetail();
+    }
+}
+
+class Library
 {
     BookList brec;
     MemberList mrec;
     TransactionLog log;
 
-    int choice;
-
-    while (true)
+public:
+    void run()
     {
-        std::cout << "\n========================= Library Management System =========================\n";
-        std::cout << "1. Add Book\n";
-        std::cout << "2. Add Member\n";
-        std::cout << "3. Issue Book\n";
-        std::cout << "4. Return Book\n";
-        std::cout << "5. Show Books\n";
-        std::cout << "6. Show Members\n";
-        std::cout << "7. Exit\n";
-        std::cout << "================================================================================\n";
-        std::cout << "Enter your choice: ";
-        std::cin >> choice;
-
-        switch (choice)
+        int choice;
+        while (true)
         {
-        case 1:
-            brec.addBook();
-            break;
+            std::cout << "\n========================= Library Management System =========================\n";
+            std::cout << "1. Add Book\n";
+            std::cout << "2. Add Member\n";
+            std::cout << "3. Transaction\n";
+            std::cout << "4. Show Books\n";
+            std::cout << "5. Show Members\n";
+            std::cout << "6. Show Transaction History (Entire Log)\n";
+            std::cout << "7. Show My Transaction History\n";
+            std::cout << "8. Exit\n";
+            std::cout << "================================================================================\n";
+            std::cout << "Enter your choice: ";
+            std::cin >> choice;
 
-        case 2:
-            mrec.addMember();
-            break;
+            switch (choice)
+            {
+            case 1:
+                brec.addBook();
+                break;
 
-        case 3:
-        {
-            std::cout << "Issuing a book...\n";
-            Transaction t;
-            t.performTransaction(brec, mrec, log);
-            break;
-        }
+            case 2:
+                mrec.addMember();
+                break;
 
-        case 4:
-        {
-            std::cout << "Returning a book...\n";
-            Transaction t;
-            t.performTransaction(brec, mrec, log);
-            break;
-        }
+            case 3:
+                std::cout << "Verifying member and book...\n";
+                performTransaction(brec, mrec, log);
+                break;
 
-        case 5:
-            std::cout << "\n========================= List of Books =========================\n";
-            brec.showBooks();
-            break;
+            case 4:
+                std::cout << "\n========================= List of Books =========================\n";
+                brec.showBooks();
+                break;
 
-        case 6:
-            std::cout << "\n========================= List of Members =========================\n";
-            mrec.showMembers();
-            break;
+            case 5:
+                std::cout << "\n========================= List of Members =========================\n";
+                mrec.showMembers();
+                break;
 
-        case 7:
-            std::cout << "\nExiting the system. Thank you for using the Library Management System!\n";
-            return 0;
+            case 6:
+                std::cout << "\n========================= Transaction Log =========================\n";
+                log.showLog();
+                break;
 
-        default:
-            std::cout << "\nInvalid choice! Please try again.\n";
+            case 7:
+            {
+                std::cout << "\n========================= My Transaction History =========================\n";
+                int memberId;
+                std::cout << "Enter your Member ID: ";
+                std::cin >> memberId;
+
+                log.showTransaction(memberId);
+                break;
+            }
+
+            case 8:
+                std::cout << "\nExiting the system. Thank you for using the Library Management System!\n";
+                return;
+
+            default:
+                std::cout << "\nInvalid choice! Please try again.\n";
+            }
         }
     }
+};
 
+int main()
+{
+    Library lib;
+    lib.run();
     return 0;
 }

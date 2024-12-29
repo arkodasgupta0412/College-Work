@@ -64,7 +64,7 @@ void delete_after(Node **prev)
     free(temp);
 }
 
-void print(Node *head)
+/*void print(Node *head)
 {
     Node *temp = head;
     while (temp != NULL)
@@ -75,14 +75,14 @@ void print(Node *head)
     printf("NULL\n");
 }
 
-/* int main()
+int main()
 {
     Node *l1 = init_l();
-    Node *n1 = create(5);
-    Node *n2 = create(10);
-    Node *n3 = create(8);
-    Node *n4 = create(3);
-    Node *n5 = create(11);
+    Node *n1 = createNode(5);
+    Node *n2 = createNode(10);
+    Node *n3 = createNode(8);
+    Node *n4 = createNode(3);
+    Node *n5 = createNode(11);
 
     insert_front(n1, &l1); // Insert n1 at the front
     print(l1);
@@ -104,4 +104,4 @@ void print(Node *head)
 
     delete_after(&n5); // Delete after n3
     print(l1);
-} */
+}*/

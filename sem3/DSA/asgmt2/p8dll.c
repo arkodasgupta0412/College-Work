@@ -86,7 +86,7 @@ void delete_after(Node **prev)
     free(temp);
 }
 
-void print(Node *head)
+/*void print(Node *head)
 {
     Node *temp = head;
     while (temp != NULL)
@@ -97,7 +97,7 @@ void print(Node *head)
     printf("NULL\n");
 }
 
-/* int main()
+int main()
 {
     Node *l1 = init_l();
     Node *n1 = create(5);

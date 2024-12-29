@@ -1,0 +1,2 @@
+No algorithm can succeed without sufficient data and efficient file access.
+The program processes each file to create the inverted index structure.

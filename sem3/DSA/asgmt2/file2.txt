@@ -1,0 +1,2 @@
+The inverted index is a fundamental concept in search engines.
+Files containing data are processed to create an index for faster search.

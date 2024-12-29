@@ -1,0 +1,2 @@
+Data structures and algorithm design form the foundation of computer science.
+Search algorithms are essential for efficient information retrieval.

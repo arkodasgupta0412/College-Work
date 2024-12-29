@@ -1,5 +1,6 @@
 // utils.c
 #include "utils.h"
+#include <stdbool.h>
 
 void swap(int *a, int *b)
 {
