@@ -1,195 +1,174 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <limits.h>
-#define INF INT_MAX
 
-/* Threaded Binary Tree Node */
-typedef struct TBTNode
+// Define the structure for a threaded binary tree node
+struct TreeNode
 {
     int data;
-    int left_thread;       // 1 if left is a thread, 0 if it's a pointer to left child
-    int right_thread;      // 1 if right is a thread, 0 if it's a pointer to right child
-    struct TBTNode *left;  // Pointer to left child or inorder predecessor
-    struct TBTNode *right; // Pointer to right child or inorder successor
-} TBTNode;
+    struct TreeNode *left;
+    struct TreeNode *right;
+    int rightThread; // 1 if the right pointer is a thread
+};
 
-/* Function to create a new node */
-TBTNode *create_node(int data)
+// Function to initialize the tree
+void init_t(struct TreeNode **root)
 {
-    TBTNode *node = (TBTNode *)malloc(sizeof(TBTNode));
-    if (!node)
-    {
-        printf("Memory allocation failed\n");
-        exit(1);
-    }
-    node->data = data;
-    node->left_thread = 1;
-    node->right_thread = 1;
-    node->left = NULL;
-    node->right = NULL;
-    return node;
+    *root = NULL;
 }
 
-/* Function to find the inorder successor */
-TBTNode *inorder_successor(TBTNode *node)
+// Function to check if the tree is empty
+int empty_t(struct TreeNode *root)
 {
-    if (node == NULL || node->right_thread == 1)
+    return root == NULL;
+}
+
+// Function to create a new node
+struct TreeNode *createNode(int data)
+{
+    struct TreeNode *newNode = (struct TreeNode *)malloc(sizeof(struct TreeNode));
+    newNode->data = data;
+    newNode->left = NULL;
+    newNode->right = NULL;
+    newNode->rightThread = 0;
+    return newNode;
+}
+
+// Function to find the inorder successor of a given node
+struct TreeNode *findSuccessor(struct TreeNode *node)
+{
+    if (node == NULL || node->rightThread)
         return node->right;
 
-    node = node->right;
-    while (node->left_thread == 0)
-    {
-        node = node->left;
-    }
-    return node;
+    struct TreeNode *current = node->right;
+    while (current->left != NULL)
+        current = current->left;
+
+    return current;
 }
 
-/* Function to find the inorder predecessor */
-TBTNode *inorder_predecessor(TBTNode *node)
+// Function to insert a node into the threaded binary tree
+struct TreeNode *insertNode(struct TreeNode *root, int data)
 {
-    if (node == NULL || node->left_thread == 1)
-        return node->left;
+    struct TreeNode *newNode = createNode(data);
 
-    node = node->left;
-    while (node->right_thread == 0)
+    if (root == NULL)
+        return newNode;
+
+    struct TreeNode *current = root;
+    struct TreeNode *parent = NULL;
+
+    // Find the correct position for the new node
+    while (current != NULL)
     {
-        node = node->right;
-    }
-    return node;
-}
-
-/* Function to insert a new node into the tree */
-void insert(TBTNode **root, int data)
-{
-    TBTNode *new_node = create_node(data);
-
-    if (*root == NULL)
-    {
-        *root = new_node; // Update root when the tree is empty
-        return;
-    }
-
-    TBTNode *curr = *root;
-    TBTNode *parent = NULL;
-
-    while (curr != NULL)
-    {
-        parent = curr;
-        if (data < curr->data)
+        parent = current;
+        if (data < current->data)
         {
-            if (curr->left_thread == 0)
-                curr = curr->left;
-            else
+            if (current->left == NULL)
                 break;
+            current = current->left;
         }
         else
         {
-            if (curr->right_thread == 0)
-                curr = curr->right;
-            else
+            if (current->rightThread)
                 break;
+            current = current->right;
         }
     }
 
+    // Insert the new node
     if (data < parent->data)
     {
-        new_node->left = parent->left;
-        new_node->right = parent;
-        parent->left_thread = 0;
-        parent->left = new_node;
+        parent->left = newNode;
+        newNode->right = parent;
+        newNode->rightThread = 1;
     }
     else
     {
-        new_node->right = parent->right;
-        new_node->left = parent;
-        parent->right_thread = 0;
-        parent->right = new_node;
+        if (parent->rightThread)
+        {
+            newNode->right = parent->right;
+            newNode->rightThread = 1;
+            parent->rightThread = 0;
+        }
+        parent->right = newNode;
     }
+
+    return root;
 }
 
-void delete_node(TBTNode **root, int data)
+// Function to delete a node with a specific key from the tree
+struct TreeNode *deleteNode(struct TreeNode *root, int key)
 {
-    TBTNode *curr = *root, *parent = NULL;
+    if (root == NULL)
+        return root;
 
-    // Search for the node to delete
-    while (curr != NULL)
+    struct TreeNode *parent = NULL;
+    struct TreeNode *current = root;
+
+    // Locate the node to delete
+    while (current != NULL && current->data != key)
     {
-        if (data == curr->data)
-            break;
-
-        parent = curr;
-        if (data < curr->data)
-        {
-            if (curr->left_thread == 0)
-                curr = curr->left;
-            else
-                curr = NULL;
-        }
+        parent = current;
+        if (key < current->data)
+            current = current->left;
         else
         {
-            if (curr->right_thread == 0)
-                curr = curr->right;
-            else
-                curr = NULL;
+            if (current->rightThread)
+                break;
+            current = current->right;
         }
     }
 
-    if (curr == NULL)
+    if (current == NULL || current->data != key)
     {
-        printf("Node with value %d not found.\n", data);
-        return;
+        printf("Key %d not found in the tree.\n", key);
+        return root;
     }
 
-    // Node to delete is found
-    if (curr->left_thread == 1 && curr->right_thread == 1)
+    // Node with only one child or no child
+    if (current->left == NULL || current->rightThread)
     {
-        // Case 1: Node with no children (leaf node)
+        struct TreeNode *child = current->left ? current->left : current->right;
         if (parent == NULL)
         {
-            // Deleting root node
-            *root = NULL;
+            // Deleting the root node
+            free(current);
+            return child;
         }
-        else if (curr == parent->left)
-        {
-            parent->left_thread = 1;
-            parent->left = curr->left; // Update predecessor link
-        }
-        else
-        {
-            parent->right_thread = 1;
-            parent->right = curr->right; // Update successor link
-        }
-        free(curr);
-    }
-    else if (curr->left_thread == 0 || curr->right_thread == 0)
-    {
-        // Case 2: Node with one child
-        TBTNode *child = (curr->left_thread == 0) ? curr->left : curr->right;
-
-        if (parent == NULL)
-        {
-            // Deleting root node
-            *root = child;
-        }
-        else if (curr == parent->left)
-        {
+        if (current == parent->left)
             parent->left = child;
-        }
         else
         {
+            if (current->rightThread)
+                parent->rightThread = 1;
             parent->right = child;
         }
-        free(curr);
+        free(current);
     }
     else
     {
-        // Case 3: Node with two children
-        TBTNode *successor = curr->right;
-        while (successor->left_thread == 0)
+        // Node with two children: Get the inorder successor
+        struct TreeNode *successor = current->right;
+        struct TreeNode *successorParent = current;
+        while (successor->left != NULL)
+        {
+            successorParent = successor;
             successor = successor->left;
+        }
 
-        int successor_data = successor->data;
-        delete_node(root, successor_data); // Delete successor node
-        curr->data = successor_data;       // Copy successor's data into current node
+        // Replace current's data with successor's data
+        current->data = successor->data;
+
+        // Delete the inorder successor
+        if (successorParent->left == successor)
+            successorParent->left = successor->right;
+        else
+        {
+            if (successor->rightThread)
+                successorParent->rightThread = 1;
+            successorParent->right = successor->right;
+        }
+        free(successor);
     }
+    return root;
 }

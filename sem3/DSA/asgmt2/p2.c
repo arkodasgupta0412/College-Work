@@ -24,27 +24,50 @@ void insertElement(SparseMatrix *mat, int row, int col, int value)
     if (value == 0)
         return; // We don't store zero elements
 
+    Node *current = mat->head;
+    Node *prev = NULL;
+
+    // Traverse to find the correct position
+    while (current != NULL && (current->row < row || (current->row == row && current->col < col)))
+    {
+        prev = current;
+        current = current->next;
+    }
+
+    // If the element already exists, update its value
+    if (current != NULL && current->row == row && current->col == col)
+    {
+        if (value != 0)
+        {
+            current->value = value;
+        }
+        else
+        {
+            // If new value is zero, remove the node
+            if (prev == NULL)
+                mat->head = current->next; // Removing the head node
+            else
+                prev->next = current->next;
+            free(current);
+        }
+        return;
+    }
+
+    // Create a new node for the non-zero element
     Node *newNode = (Node *)malloc(sizeof(Node));
     newNode->row = row;
     newNode->col = col;
     newNode->value = value;
-    newNode->next = NULL;
+    newNode->next = current;
 
-    // Insert node in sorted order by row and column
-    if (mat->head == NULL || (mat->head->row > row) || (mat->head->row == row && mat->head->col > col))
+    // Insert the new node into the list
+    if (prev == NULL)
     {
-        newNode->next = mat->head;
-        mat->head = newNode;
+        mat->head = newNode; // Insert at the head of the list
     }
     else
     {
-        Node *current = mat->head;
-        while (current->next != NULL && (current->next->row < row || (current->next->row == row && current->next->col < col)))
-        {
-            current = current->next;
-        }
-        newNode->next = current->next;
-        current->next = newNode;
+        prev->next = newNode; // Insert after the previous node
     }
 }
 

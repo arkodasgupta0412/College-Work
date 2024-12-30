@@ -35,7 +35,7 @@ void quick_sort(int arr[], int size, long long *cmp)
 
 int main()
 {
-    int size = 80000;
+    int size = 100000;
     int *arr = malloc(size * sizeof(int));
     if (arr == NULL)
     {
@@ -79,13 +79,13 @@ int main()
 
     // Merge Sort
 
-    /*long long cmpms = 0;
+    long long cmpms = 0;
     t_start = clock();
     merge_sort(arr, size, &cmpms);
     t_end = clock();
     time_merge = ((long double)(t_end - t_start)) / CLOCKS_PER_SEC;
     printf("Merge Sort Comparisons: %lld\n", cmpms);
-    printf("Merge Sort Time: %.4f seconds\n\n", time_merge);*/
+    printf("Merge Sort Time: %.4f seconds\n\n", time_merge);
 
     // Heap Sort
 
@@ -99,13 +99,13 @@ int main()
 
     // Quick Sort
 
-    long long cmpqs = 0;
+    /*long long cmpqs = 0;
     t_start = clock();
     quick_sort(arr, size, &cmpqs);
     t_end = clock();
     time_quick = ((double)(t_end - t_start)) / CLOCKS_PER_SEC;
     printf("Quick Sort Comparisons: %lld\n", cmpqs);
-    printf("Quick Sort Time: %.4f seconds\n\n", time_quick);
+    printf("Quick Sort Time: %.4f seconds\n\n", time_quick);*/
 
     free(arr);
     return 0;

@@ -170,17 +170,22 @@ void printPoly(PolyNode *poly)
 int main()
 {
     PolyNode *p1 = createPoly(4);
+    printf("\np1(x) = ");
     printPoly(p1);
-    printf("\n\n");
+    printf("\n");
     PolyNode *p2 = createPoly(3);
+    printf("\np2(x) = ");
     printPoly(p2);
 
     PolyNode *sum = add(p1, p2);
+    printf("\np1(x) + p2(x) = ");
     printPoly(sum);
 
     PolyNode *diff = sub(p1, p2);
+    printf("\np1(x) - p2(x) = ");
     printPoly(diff);
 
     PolyNode *p = mul(p1, p2);
+    printf("\np1(x) * p2(x) = ");
     printPoly(p);
 }
