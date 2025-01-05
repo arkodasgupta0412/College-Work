@@ -1,6 +1,0 @@
-algorithm 1 0 1 0 1 1 
-data 0 1 0 1 1 1 
-index 0 2 1 2 0 1 
-search 0 1 0 1 0 0 
-program 0 0 1 0 1 1 
-file 0 0 0 1 1 2 

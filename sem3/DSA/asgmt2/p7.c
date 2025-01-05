@@ -1,43 +1,67 @@
 #include <stdio.h>
+#include "utils.c"
 
-void segregate(int arr[], int n)
+void segregate(int num[], int res[], int size)
 {
-    int low = 0, high = n - 1;
-    while (low < high)
+    int i;
+    int j;
+    j = 0;
+    for (i = 0; i < size; i++)
     {
-        if (arr[low] > 0 && arr[high] < 0)
+        if (num[i] < 0)
         {
-            int tmp = arr[low];
-            arr[low] = arr[high];
-            arr[high] = tmp;
-            low++, high--;
+            res[j] = num[i];
+            j++;
         }
+    }
 
-        else if (arr[low] < 0 && arr[high] > 0)
+    for (i = 0; i < size; i++)
+    {
+        if (num[i] >= 0)
         {
-            low++, high--;
-        }
-
-        else if (arr[low] < 0 && arr[high] < 0)
-        {
-            low++;
-        }
-        else
-        {
-            high--;
+            res[j] = num[i];
+            j++;
         }
     }
 }
 
-int main()
+/*int main()
 {
-    int arr[] = {-1, -1, 1, 1, 1, 1, -1, -1, 1, -1};
+    int arr[] = {2, -7, 10, 12, 5, -2, 32, -4};
     int size = sizeof(arr) / sizeof(arr[0]);
+    int res[size];
 
-    segregate(arr, size);
-
+    printf("\nInput Array: ");
     for (int i = 0; i < size; i++)
     {
         printf("%d ", arr[i]);
     }
-}
+
+    segregate(arr, res, size);
+
+    printf("\n\nOutput Array: ");
+    for (int i = 0; i < size; i++)
+    {
+        printf("%d ", res[i]);
+    }
+    printf("\n\n");
+
+    int arr1[] = {1, -1, 1, -1, 1, 1, -1, 1, -1, -1, 1};
+    int size1 = sizeof(arr1) / sizeof(arr1[0]);
+    res[size1];
+
+    printf("\nInput Array: ");
+    for (int i = 0; i < size1; i++)
+    {
+        printf("%d ", arr1[i]);
+    }
+
+    segregate(arr1, res, size1);
+
+    printf("\n\nOutput Array: ");
+    for (int i = 0; i < size1; i++)
+    {
+        printf("%d ", res[i]);
+    }
+    printf("\n\n");
+}*/

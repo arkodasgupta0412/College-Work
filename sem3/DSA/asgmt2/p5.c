@@ -119,7 +119,7 @@ void slidingWindowFilter(int *arr, int *output, int size, int windowSize, char o
 
 int main()
 {
-    int arr[] = {1, 3, 2, 5, 4, 7, 6};
+    int arr[] = {4, 5, 1, 13, 3, 25, 27, 18, 10, 3, 4, 9};
     int size = sizeof(arr) / sizeof(arr[0]);
     int windowSize = 3;
     int *output = (int *)malloc(sizeof(int) * size);
