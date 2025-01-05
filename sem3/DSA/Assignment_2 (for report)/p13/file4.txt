@@ -1,0 +1,2 @@
+Search programs require both index data and an efficient algorithm.
+Optimized file systems speed up the search for index data.
