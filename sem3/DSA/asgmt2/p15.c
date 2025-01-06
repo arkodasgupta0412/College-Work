@@ -224,7 +224,7 @@ int main()
     performCCWOrientation(&poly1);
     performCCWOrientation(&poly2);
 
-    printf("Polygon 1:\n");
+    /*printf("Polygon 1:\n");
     for (int i = 0; i < poly1->vCount; i++)
     {
         printf("(%lf,%lf)", poly1->vertices[i].x, poly1->vertices[i].y);
@@ -234,7 +234,7 @@ int main()
     {
         printf("(%lf,%lf)", poly2->vertices[i].x, poly2->vertices[i].y);
     }
-    printf("\n");
+    printf("\n");*/
 
     int intersect = 0, touch = 0;
 
