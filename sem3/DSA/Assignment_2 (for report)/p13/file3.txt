@@ -1,2 +1,0 @@
-The program calculates the inverted index from a set of input files.
-Data files need to be thoroughly analyzed for the algorithm to succeed.

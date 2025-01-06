@@ -1,1 +1,0 @@
-This is the DSA assignment of Abhirup Pal for the 3rd semester in Computer Science and Engineering at Jadavpur University.

@@ -1,2 +1,0 @@
-An algorithm can process files to extract meaningful data for an inverted index.
-Every file must be parsed by the program to count keywords like search.
