@@ -1,3 +1,22 @@
+/*
+2.5. Given a large single dimensional array of integers, write functions for sliding window filter with
+maximum, minimum, median, and average to generate an output array. The window size should be an odd
+integer like 3, 5 or 7. Explain what you will do with the boundary values. (Use zero-padding in both ends
+of the arrays as necessary.)
+Input Output examples for problem no. 2.5
+Input: 4, 5, 1, 13, 3, 25, 27, 18, 10, 3, 4, 9
+Window size: 3
+Max filter output: 5, 5, 13, 13, 25, 27, 27, 27, 18, 10, 9, 9
+Min filter output: 0, 1, 1, 1, 3, 3, 18, 10, 3, 3, 3, 0
+Median filter output: 4, 4, 5, 3, 13, 25, 25, 18, 10, 4, 4, 4
+2.6. Find whether an array is sorted or not, and the sorting order.
+2.7. Write a C program to move the negative elements in an array to the front of array.
+Example:
+Input : 2 -7 10 12 5 -2 32 -4
+Output: -7 -2 -4 2 10 12 5 32
+*/
+
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>

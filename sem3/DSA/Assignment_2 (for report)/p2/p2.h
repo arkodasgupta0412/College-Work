@@ -1,3 +1,11 @@
+/*
+2.2. Define an ADT for Sparse Matrix.
+Write C data structure representation and functions for the operations on the Sparse Matrix in a Header file.
+Write a menu-driven main program in a separate file for testing the different operations and include the
+above header file.
+*/
+
+
 #ifndef P2_H
 #define P2_H
 

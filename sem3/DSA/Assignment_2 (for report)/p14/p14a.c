@@ -1,3 +1,9 @@
+/*
+2.14. Write an application for adding, subtracting and multiplying very large numbers, say more than 70-
+digit integers, using (a) arrays and (b) linked lists to represent the large integers.
+*/
+
+
 #include <stdio.h>
 #include <string.h>
 #define LEN 200

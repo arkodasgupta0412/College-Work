@@ -1,3 +1,9 @@
+/*
+3.4 Define an ADT for a threaded Binary Tree.
+Implement the ADT including the three traversals.
+*/
+
+
 #include <stdio.h>
 #include <stdlib.h>
 

@@ -1,3 +1,28 @@
+/*
+2.10. Implement the following functions in a menu-driven C program using the data structure operation of
+Singly Linked List in the header file developed in problem 2.8:
+a) print a list (i) in the same order, (ii) in the reverse order.
+b) find the size of a list in number of nodes
+c) check whether two lists are equal
+d) search for a key in (i) an unordered list, (ii) an ordered list (Return the node if key is found and delete
+the node from original list)
+e) append a list at the end of another list.
+f) delete the nth node, last node and first node of a list.
+g) check whether a list is ordered
+h) merge two sorted lists
+i) insert a target node in the beginning, before a specified node and at the end of the list (sorted and
+unsorted).
+j) remove duplicates from a linked list (sorted and unsorted)
+k) swap elements of a list pairwise
+l) move last element to front of a list
+m) delete alternate nodes of a list
+n) rotate a list
+o) delete a list.
+p) reverse a list.
+q) sort a list. 
+*/
+
+
 #include "p8.c"
 #include <stdio.h>
 #include <stdbool.h>

@@ -1,3 +1,11 @@
+/*
+3.5 Define an ADT for Binary Search Tree.
+a) Implement the ADT.
+b) Write functions for Print-preorder, Print-inorder, and Print-postorder, so that
+we can check the trees after insertion and deletion operations.
+*/
+
+
 #include <stdio.h>
 #include <stdlib.h>
 

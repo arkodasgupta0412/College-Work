@@ -1,3 +1,12 @@
+/*
+2.4. Define an ADT for Set.
+Write C data representation and functions for the operations on the Set in a Header file, with array as the
+base data structure.
+Write a menu-driven main program in a separate file for testing the different operations and include the
+above header file
+*/
+
+
 #ifndef P4_H
 #define P4_H
 

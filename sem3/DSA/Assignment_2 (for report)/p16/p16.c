@@ -1,3 +1,15 @@
+/*
+2.16. Write C language functions for the following sorting algorithms:
+Insertion Sort, Selection Sort, Bubble Sort, Mergesort, Quicksort and Heapsort, with all their variants
+discussed in the class.
+Run the functions to sort already-sorted, reverse-sorted and unsorted data from the files of random integers
+and text strings you have created in Assignment I. Take the first 5000, 10000, 15000, … elements in the
+array (in sorted, reverse-sorted and unsorted data) and run each of the sorting functions. Find out the number
+of comparisons made in each case and the execution times taken for each run. Tabulate the data and draw
+the graphs for discussion on the results obtained vis-à-vis the analysis results.
+*/
+
+
 #include <stdio.h>
 #include <time.h>
 #include "generate.c"

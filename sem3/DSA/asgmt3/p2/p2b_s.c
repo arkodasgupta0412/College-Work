@@ -1,5 +1,16 @@
+/*
+3.2 Define the ADTs for Stack and Queue.
+a) Implement the ADTS using Array.
+b) Implement the ADTs using Linked List. Use the data structures for Linked
+List already developed in Assignment II as header files.
+c) Develop a program for converting a string containing an infix expression to a
+string containing the corresponding postfix expression. Both the strings are
+terminated by a sentinel ‘#’.
+*/
+
+
 #include <stdio.h>
-#include "../../asgmt2/p8.c"
+#include "../../Assignment_2/p12/p12csll.c"
 
 typedef struct Stack
 {

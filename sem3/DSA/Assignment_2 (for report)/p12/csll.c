@@ -1,39 +1,40 @@
+/*
+2.12. Repeat problems 2.8 and 2.10 for a circular single linked list, doubly linked list and circular doubly
+linked list. You need to develop Build_list and Build_list_reverse, as well as Print_list for each case. 
+*/
+
+
 #include "csll.h"
 
-// Initialize an empty list
 Node *init_l()
 {
     return NULL;
 }
 
-// Create a new node with given data
 Node *createNode(int data)
 {
     Node *node = (Node *)malloc(sizeof(Node));
     node->data = data;
-    node->next = node; // Point to itself, as it’s circular
+    node->next = node;
     return node;
 }
 
-// Check if the list is empty
 int empty_l(Node *head)
 {
     return (head == NULL);
 }
 
-// Check if the given node is the last node (at end) in the list
 int atend_l(Node *curr, Node *head)
 {
     return (curr->next == head);
 }
 
-// Insert a node at the front of the list
 void insert_front(Node *target, Node **head)
 {
     if (*head == NULL)
     {
         *head = target;
-        target->next = target; // Self-link as it's the only node
+        target->next = target;
         return;
     }
 
@@ -42,12 +43,11 @@ void insert_front(Node *target, Node **head)
     {
         cur = cur->next;
     }
-    cur->next = target; // Update the last node to point to the new front
+    cur->next = target;
     target->next = *head;
     *head = target;
 }
 
-// Insert a node after a given node
 void insert_after(Node *target, Node **prev)
 {
     if (*prev == NULL)
@@ -59,7 +59,6 @@ void insert_after(Node *target, Node **prev)
     (*prev)->next = target;
 }
 
-// Delete the front node of the list
 void delete_front(Node **head)
 {
     if (*head == NULL)
@@ -69,7 +68,7 @@ void delete_front(Node **head)
     }
 
     if ((*head)->next == *head)
-    { // Only one node
+    {
         free(*head);
         *head = NULL;
         return;
@@ -82,12 +81,11 @@ void delete_front(Node **head)
     }
 
     Node *temp = *head;
-    cur->next = temp->next; // Update the last node to point to the new head
-    *head = temp->next;     // Update head to the next node
+    cur->next = temp->next;
+    *head = temp->next;
     free(temp);
 }
 
-// Delete a node after the given node
 void delete_after(Node **prev)
 {
     if (*prev == NULL || (*prev)->next == NULL)
@@ -100,7 +98,6 @@ void delete_after(Node **prev)
     free(temp);
 }
 
-// Print the list
 /*void print(Node *head)
 {
     if (head == NULL)

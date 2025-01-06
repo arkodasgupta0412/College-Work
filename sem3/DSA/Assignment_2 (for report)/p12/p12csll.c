@@ -1,3 +1,9 @@
+/*
+2.12. Repeat problems 2.8 and 2.10 for a circular single linked list, doubly linked list and circular doubly
+linked list. You need to develop Build_list and Build_list_reverse, as well as Print_list for each case. 
+*/
+
+
 #include "csll.c"
 #include <stdio.h>
 #include <stdbool.h>
@@ -5,7 +11,6 @@
 #include "../utils.c"
 #include <limits.h>
 
-// Function prototypes for additional operations
 Node *createCSLL(int);
 void print(Node *head);
 void print_reverse(Node *head, Node *current, int *cnt, int size);
@@ -50,7 +55,6 @@ void menu()
     printf("19. Exit\n");
 }
 
-// Main function
 int main()
 {
     int choice, data, key, position, size, op, n;
@@ -293,7 +297,7 @@ bool are_lists_equal(Node *head1, Node *head2)
 int search_key(Node **head, int key)
 {
     if (*head == NULL)
-        return INT_MAX; // Return INT_MAX if list is empty
+        return INT_MAX;
 
     Node *prev = NULL;
     Node *cur = *head;
@@ -305,7 +309,6 @@ int search_key(Node **head, int key)
         {
             tmp = cur->data;
 
-            // If cur is the head node
             if (*head == cur)
             {
                 *head = cur->next;
@@ -325,7 +328,7 @@ int search_key(Node **head, int key)
 
     } while (cur != *head);
 
-    return INT_MAX; // Return INT_MAX if key is not found
+    return INT_MAX;
 }
 
 void append_list(Node **head1, Node *head2)
@@ -399,7 +402,6 @@ Node *merge_sorted_lists(Node *head1, Node *head2)
     }
 
     insert_front(createNode(0), &list3);
-    // print(list3);
     Node *cur1 = head1, *cur2 = head2, *cur3 = list3;
 
     while (cur1 != NULL && cur2 != NULL)
@@ -485,9 +487,9 @@ void remove_duplicates(Node **head)
         Node *temp = cur->next;
         while (temp != *head)
         {
-            if (cur->data == temp->data) // Duplicate found
+            if (cur->data == temp->data)
             {
-                prev->next = temp->next; // Remove duplicate node
+                prev->next = temp->next;
                 free(temp);
                 temp = prev->next;
             }

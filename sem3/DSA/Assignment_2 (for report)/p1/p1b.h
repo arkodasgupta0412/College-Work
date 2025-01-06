@@ -1,3 +1,11 @@
+/*
+2.1. Define an ADT for Polynomials.
+Write C data structure representation and functions for the operations on the Polynomials in a Header file.
+Write a menu-driven main program in a separate file for testing the different operations and include the
+above header file.
+*/
+
+
 #ifndef P1B_H
 #define P1B_H
 

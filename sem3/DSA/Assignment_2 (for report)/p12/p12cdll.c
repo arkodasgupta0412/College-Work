@@ -1,3 +1,9 @@
+/*
+2.12. Repeat problems 2.8 and 2.10 for a circular single linked list, doubly linked list and circular doubly
+linked list. You need to develop Build_list and Build_list_reverse, as well as Print_list for each case. 
+*/
+
+
 #include "cdll.c"
 #include <stdio.h>
 #include <stdbool.h>
@@ -5,7 +11,6 @@
 #include "../utils.c"
 #include <limits.h>
 
-// Function prototypes for additional operations
 Node *createCDLL(int);
 void print(Node *head);
 void print_reverse(Node *head);
@@ -50,7 +55,6 @@ void menu()
     printf("19. Exit\n");
 }
 
-// Main function
 int main()
 {
     int choice, data, key, position, size, op, n;
@@ -242,11 +246,11 @@ void print_reverse(Node *head)
         printf("List is empty\n");
         return;
     }
-    Node *current = head->prev; // Start from the last node (prev of the head)
+    Node *current = head->prev;
     do
     {
         printf("%d <-> ", current->data);
-        current = current->prev; // Move towards the head
+        current = current->prev;
     } while (current != head->prev);
     printf("HEAD\n");
 }
@@ -345,7 +349,7 @@ void delete_nth_node(Node **head, int n)
     Node *current = *head;
     if (n == 0)
     {
-        delete_front(head); // Special case for the first node
+        delete_front(head);
         return;
     }
 
@@ -358,7 +362,7 @@ void delete_nth_node(Node **head, int n)
             current->prev->next = current->next;
             current->next->prev = current->prev;
             if (current == *head)
-                *head = current->next; // If we delete the head, update head
+                *head = current->next;
             free(toDelete);
             return;
         }

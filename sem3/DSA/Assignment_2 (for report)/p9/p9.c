@@ -1,3 +1,10 @@
+/*
+2.9. Read integers from a file and arrange them in a linked list (a) in the order they are read, (b) in reverse
+order. Show the lists by printing by developing a function Print_list. The functions for (a) is Build_list and
+for (b) is Build_list_reverse. 
+*/
+
+
 #include <stdio.h>
 #include <stdlib.h>
 #include "../p8.c"

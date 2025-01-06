@@ -1,3 +1,11 @@
+/*
+2.7. Write a C program to move the negative elements in an array to the front of array.
+Example:
+Input : 2 -7 10 12 5 -2 32 -4
+Output: -7 -2 -4 2 10 12 5 32
+*/
+
+
 #include <stdio.h>
 #include "utils.c"
 

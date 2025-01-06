@@ -1,3 +1,8 @@
+/*
+2.6. Find whether an array is sorted or not, and the sorting order.
+*/
+
+
 #include <stdio.h>
 
 typedef enum
@@ -29,7 +34,7 @@ SortOrder checkSorted(int arr[], int n)
     return UNSORTED;
 }
 
-/*int main()
+int main()
 {
     // Example 1: Ascending order array
     int arr1[] = {1, 2, 3, 4, 5};
@@ -83,4 +88,4 @@ SortOrder checkSorted(int arr[], int n)
         printf("Unsorted\n");
 
     return 0;
-}*/
+}

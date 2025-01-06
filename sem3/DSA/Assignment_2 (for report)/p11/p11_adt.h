@@ -1,3 +1,9 @@
+/*
+2.11. Write all the above operations of Single Linked List for the implementation using array. You need to
+develop Build_list and Build_list_reverse, as well as Print_list. 
+*/
+
+
 #ifndef P11_ADT_H
 #define P11_ADT_H
 

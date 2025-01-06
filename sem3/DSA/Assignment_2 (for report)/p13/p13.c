@@ -1,3 +1,11 @@
+/*
+2.13. Implement an application to find out the Inverted Index of a set of text files, given a set of keywords.
+Create a set of 6 text files having the keywords in different positions in the text files. The keywords may
+occur multiple times in a file. The inverted index file will list the key words along with the file names in
+which they occur and how many times they occur in that file.
+*/
+
+
 #include <stdio.h>
 #include <string.h>
 #define MAX 100

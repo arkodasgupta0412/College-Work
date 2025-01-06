@@ -1,3 +1,9 @@
+/*
+2.12. Repeat problems 2.8 and 2.10 for a circular single linked list, doubly linked list and circular doubly
+linked list. You need to develop Build_list and Build_list_reverse, as well as Print_list for each case. 
+*/
+
+
 #include "dll.h"
 
 Node *init_l()
@@ -30,7 +36,7 @@ void insert_front(Node *target, Node **head)
     target->prev = NULL;
 
     if (*head != NULL)
-        (*head)->prev = target; // Update previous head's prev to new node
+        (*head)->prev = target;
 
     *head = target;
 }
@@ -47,7 +53,7 @@ void insert_after(Node *target, Node **prev)
     target->prev = *prev;
 
     if ((*prev)->next != NULL)
-        (*prev)->next->prev = target; // Update the next node's prev pointer
+        (*prev)->next->prev = target;
 
     (*prev)->next = target;
 }
@@ -64,7 +70,7 @@ void delete_front(Node **head)
     *head = (*head)->next;
 
     if (*head != NULL)
-        (*head)->prev = NULL; // Update the new head's prev pointer
+        (*head)->prev = NULL;
 
     free(temp);
 }
@@ -81,7 +87,7 @@ void delete_after(Node **prev)
     (*prev)->next = temp->next;
 
     if (temp->next != NULL)
-        temp->next->prev = *prev; // Update next node's prev pointer
+        temp->next->prev = *prev;
 
     free(temp);
 }

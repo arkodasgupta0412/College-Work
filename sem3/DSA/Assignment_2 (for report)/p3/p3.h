@@ -1,3 +1,12 @@
+/*
+2.3. Define an ADT for List.
+Write C data structure representation and functions for the operations on the List in a Header file with array
+as the base data structure.
+Write a menu-driven main program in a separate file for testing the different operations and include the
+above header file. Two data structures with and without using sentinels in arrays are to be implemented.
+*/
+
+
 #ifndef P3_H
 #define P3_H
 

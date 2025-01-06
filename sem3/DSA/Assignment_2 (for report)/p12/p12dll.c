@@ -1,3 +1,9 @@
+/*
+2.12. Repeat problems 2.8 and 2.10 for a circular single linked list, doubly linked list and circular doubly
+linked list. You need to develop Build_list and Build_list_reverse, as well as Print_list for each case. 
+*/
+
+
 #include "dll.c"
 #include <stdio.h>
 #include <stdbool.h>
@@ -5,7 +11,6 @@
 #include "../utils.c"
 #include <limits.h>
 
-// Function prototypes for additional DLL operations
 Node *createDLL(int);
 void print(Node *head);
 void print_reverse(Node *head);
@@ -365,7 +370,6 @@ Node *merge_sorted_lists(Node *head1, Node *head2)
     }
 
     insert_front(createNode(0), &list3);
-    // print(list3);
     Node *cur1 = head1, *cur2 = head2, *cur3 = list3;
 
     while (cur1 != NULL && cur2 != NULL)
@@ -401,7 +405,6 @@ Node *merge_sorted_lists(Node *head1, Node *head2)
     return list3->next;
 }
 
-// Function to insert a node with target value before a given node
 void insert_target_node(Node **head, int target, int before)
 {
     if (*head == NULL)
@@ -436,7 +439,6 @@ void insert_target_node(Node **head, int target, int before)
     cur->prev = new_node;
 }
 
-// Function to remove duplicate elements from a DLL
 void remove_duplicates(Node **head)
 {
     if (*head == NULL)
@@ -473,7 +475,6 @@ void remove_duplicates(Node **head)
     }
 }
 
-// Function to swap elements pairwise
 void swap_pairwise(Node **head)
 {
     if (*head == NULL || (*head)->next == NULL)
@@ -491,7 +492,6 @@ void swap_pairwise(Node **head)
     }
 }
 
-// Function to move the last element to the front
 void move_last_to_front(Node **head)
 {
     if (*head == NULL || (*head)->next == NULL)
@@ -515,7 +515,6 @@ void move_last_to_front(Node **head)
     *head = tail;
 }
 
-// Function to delete alternate nodes in a DLL
 void delete_alternate_nodes(Node **head)
 {
     if (*head == NULL)
@@ -537,7 +536,6 @@ void delete_alternate_nodes(Node **head)
     }
 }
 
-// Function to rotate a DLL by moving the head to the end
 void rotate_list(Node **head)
 {
     if (*head == NULL || (*head)->next == NULL)
@@ -559,7 +557,6 @@ void rotate_list(Node **head)
     cur->prev->next = NULL;
 }
 
-// Function to reverse a DLL
 void reverse_list(Node **head)
 {
     if (*head == NULL || (*head)->next == NULL)
@@ -584,7 +581,6 @@ void reverse_list(Node **head)
     }
 }
 
-// Function to sort the DLL in ascending or descending order
 void sort_list(Node **head, int op)
 {
     if (*head == NULL || (*head)->next == NULL)

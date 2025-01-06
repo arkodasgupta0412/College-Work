@@ -1,8 +1,15 @@
+/*
+2.2. Define an ADT for Sparse Matrix.
+Write C data structure representation and functions for the operations on the Sparse Matrix in a Header file.
+Write a menu-driven main program in a separate file for testing the different operations and include the
+above header file.
+*/
+
+
 #include <stdio.h>
 #include <stdlib.h>
 #include "p2.h"
 
-// Create a new sparse matrix
 SparseMatrix *createSparseMatrix(int rows, int cols)
 {
     SparseMatrix *mat = (SparseMatrix *)malloc(sizeof(SparseMatrix));
@@ -12,7 +19,6 @@ SparseMatrix *createSparseMatrix(int rows, int cols)
     return mat;
 }
 
-// Insert a non-zero element into the sparse matrix
 void insertElement(SparseMatrix *mat, int row, int col, int value)
 {
     if (row >= mat->rows || col >= mat->cols || row < 0 || col < 0)
@@ -22,19 +28,17 @@ void insertElement(SparseMatrix *mat, int row, int col, int value)
     }
 
     if (value == 0)
-        return; // We don't store zero elements
+        return; 
 
     Node *current = mat->head;
     Node *prev = NULL;
 
-    // Traverse to find the correct position
     while (current != NULL && (current->row < row || (current->row == row && current->col < col)))
     {
         prev = current;
         current = current->next;
     }
 
-    // If the element already exists, update its value
     if (current != NULL && current->row == row && current->col == col)
     {
         if (value != 0)
@@ -43,9 +47,8 @@ void insertElement(SparseMatrix *mat, int row, int col, int value)
         }
         else
         {
-            // If new value is zero, remove the node
             if (prev == NULL)
-                mat->head = current->next; // Removing the head node
+                mat->head = current->next;
             else
                 prev->next = current->next;
             free(current);
@@ -53,25 +56,22 @@ void insertElement(SparseMatrix *mat, int row, int col, int value)
         return;
     }
 
-    // Create a new node for the non-zero element
     Node *newNode = (Node *)malloc(sizeof(Node));
     newNode->row = row;
     newNode->col = col;
     newNode->value = value;
     newNode->next = current;
 
-    // Insert the new node into the list
     if (prev == NULL)
     {
-        mat->head = newNode; // Insert at the head of the list
+        mat->head = newNode;
     }
     else
     {
-        prev->next = newNode; // Insert after the previous node
+        prev->next = newNode;
     }
 }
 
-// Display the sparse matrix in coordinate format
 void displaySparseMatrix(const SparseMatrix *mat)
 {
     if (mat->head == NULL)
@@ -89,7 +89,6 @@ void displaySparseMatrix(const SparseMatrix *mat)
     }
 }
 
-// Add two sparse matrices
 SparseMatrix *addSparseMatrices(const SparseMatrix *mat1, const SparseMatrix *mat2)
 {
     if (mat1->rows != mat2->rows || mat1->cols != mat2->cols)
@@ -180,7 +179,6 @@ SparseMatrix *subtractSparseMatrices(const SparseMatrix *mat1, const SparseMatri
     return result;
 }
 
-// Multiply two sparse matrices
 SparseMatrix *multiplySparseMatrices(const SparseMatrix *mat1, const SparseMatrix *mat2)
 {
     if (mat1->cols != mat2->rows)
@@ -208,7 +206,6 @@ SparseMatrix *multiplySparseMatrices(const SparseMatrix *mat1, const SparseMatri
     return result;
 }
 
-// Delete the sparse matrix and free memory
 void deleteSparseMatrix(SparseMatrix *mat)
 {
     Node *current = mat->head;
@@ -245,7 +242,7 @@ int main()
         {
         case 1:
             if (mat1 != NULL)
-                deleteSparseMatrix(mat1); // Clean up if previously created
+                deleteSparseMatrix(mat1);
             printf("Enter number of rows and columns for Matrix 1: ");
             scanf("%d %d", &rows, &cols);
             mat1 = createSparseMatrix(rows, cols);
@@ -254,7 +251,7 @@ int main()
 
         case 2:
             if (mat2 != NULL)
-                deleteSparseMatrix(mat2); // Clean up if previously created
+                deleteSparseMatrix(mat2);
             printf("Enter number of rows and columns for Matrix 2: ");
             scanf("%d %d", &rows, &cols);
             mat2 = createSparseMatrix(rows, cols);
@@ -325,7 +322,7 @@ int main()
                 {
                     printf("Resultant Matrix after addition:\n");
                     displaySparseMatrix(result);
-                    deleteSparseMatrix(result); // Free the result matrix
+                    deleteSparseMatrix(result);
                 }
             }
             break;
@@ -342,7 +339,7 @@ int main()
                 {
                     printf("Resultant Matrix after multiplication:\n");
                     displaySparseMatrix(result);
-                    deleteSparseMatrix(result); // Free the result matrix
+                    deleteSparseMatrix(result);
                 }
             }
             break;

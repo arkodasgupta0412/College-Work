@@ -1,12 +1,16 @@
+/*
+2.12. Repeat problems 2.8 and 2.10 for a circular single linked list, doubly linked list and circular doubly
+linked list. You need to develop Build_list and Build_list_reverse, as well as Print_list for each case. 
+*/
+
+
 #include "cdll.h"
 
-// Initialize an empty list
 Node *init_l()
 {
-    return NULL; // Circular doubly linked list with NULL indicates an empty list
+    return NULL;
 }
 
-// Create a new Linked List Node
 Node *createNode(int data)
 {
     Node *newNode = (Node *)malloc(sizeof(Node));
@@ -16,28 +20,25 @@ Node *createNode(int data)
         exit(EXIT_FAILURE);
     }
     newNode->data = data;
-    newNode->prev = newNode->next = NULL; // Initialize pointers to NULL
+    newNode->prev = newNode->next = NULL;
     return newNode;
 }
 
-// Check whether the linked list is empty
 int empty_l(Node *head)
 {
     return head == NULL;
 }
 
-// Check if the current pointer points to the end of the list
 int atend_l(Node *current)
 {
     return current == NULL;
 }
 
-// Insert a new node at the front of the list
 void insert_front(Node *target, Node **head)
 {
     if (empty_l(*head))
     {
-        target->next = target->prev = target; // Single node points to itself
+        target->next = target->prev = target;
         *head = target;
     }
     else
@@ -47,11 +48,10 @@ void insert_front(Node *target, Node **head)
         target->prev = tail;
         tail->next = target;
         (*head)->prev = target;
-        *head = target; // Update head to new node
+        *head = target;
     }
 }
 
-// Insert a new node after the node pointed to by `prev`
 void insert_after(Node *target, Node **prev)
 {
     if (empty_l(*prev))
@@ -66,7 +66,6 @@ void insert_after(Node *target, Node **prev)
     nextNode->prev = target;
 }
 
-// Delete the head of the linked list and assign a new head
 void delete_front(Node **head)
 {
     if (empty_l(*head))
@@ -75,7 +74,7 @@ void delete_front(Node **head)
         return;
     }
     Node *toDelete = *head;
-    if (toDelete->next == toDelete) // Single node in the list
+    if (toDelete->next == toDelete)
     {
         free(toDelete);
         *head = NULL;
@@ -90,7 +89,6 @@ void delete_front(Node **head)
     }
 }
 
-// Delete the node after the node pointed to by `prev`
 void delete_after(Node **prev)
 {
     if (empty_l(*prev) || (*prev)->next == *prev)

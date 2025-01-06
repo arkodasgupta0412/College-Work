@@ -1,3 +1,16 @@
+/*
+2.8. Implement the following functions of ADT Linked List using singly linked list as a header file:
+init_l(cur) – initialize a list
+empty_l(head) – boolean function to return true if list pointed to by head is empty
+atend_l(cur) – boolean function to return true if cur points to the last node in the list
+insert_front(target, head) – insert the node pointed to by target as the first node of the list pointed to by
+head
+insert_after(target, prev) – insert the node pointed to by target after the node pointed to by prev
+delete_front(head) – delete the first element of the list pointed to by head
+delete_after(prev) – delete the node after the one pointed to by prev
+*/
+
+
 #include "p8.h"
 #include <stdio.h>
 
