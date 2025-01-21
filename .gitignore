@@ -12,3 +12,11 @@
 # ignore all doc files
 *.docx
 *.doc
+
+*.idea
+
+*.iml
+
+*.class
+
+*out
