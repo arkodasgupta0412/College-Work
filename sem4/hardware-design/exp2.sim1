@@ -36,6 +36,26 @@
 
 <item itemtype="Subcircuit" CircId="74HC76-194" mainComp="false" Show_id="true" Show_Val="false" Pos="-788,212" rotation="90" hflip="1" vflip="1" label="74HC76-194" idLabPos="4.35043,157.062" labelrot="-90" valLabPos="-16,20" valLabRot="0" Input_High_V="2.5 V" Input_Low_V="2.5 V" Input_Imped="1e+09 Ω" Out_High_V="5 V" Out_Low_V="0 V" Out_Imped="40 Ω" Tpd_ps="10 ns" Tr_ps="3 ns" Tf_ps="4 ns" Logic_Symbol="true" />
 
+<item itemtype="Fixed Voltage" CircId="Fixed Voltage-201" mainComp="false" Show_id="false" Show_Val="false" Pos="-960,488" rotation="0" hflip="1" vflip="1" label="Fixed Voltage-201" idLabPos="-64,-24" labelrot="0" valLabPos="-16,8" valLabRot="0" Voltage="5 V" Out="true" />
+
+<item itemtype="Led" CircId="Led-236" mainComp="false" Show_id="false" Show_Val="false" Pos="-764,608" rotation="0" hflip="1" vflip="1" label="Led-236" idLabPos="-16,-24" labelrot="0" valLabPos="-16,20" valLabRot="0" Color="Yellow" Grounded="true" Threshold="2.4 V" MaxCurrent="30 mA" Resistance="0.6 Ω" />
+
+<item itemtype="Led" CircId="Led-240" mainComp="false" Show_id="false" Show_Val="false" Pos="-648,604" rotation="0" hflip="1" vflip="1" label="Led-240" idLabPos="-16,-24" labelrot="0" valLabPos="-16,20" valLabRot="0" Color="Yellow" Grounded="true" Threshold="2.4 V" MaxCurrent="30 mA" Resistance="0.6 Ω" />
+
+<item itemtype="Led" CircId="Led-244" mainComp="false" Show_id="false" Show_Val="false" Pos="-536,604" rotation="0" hflip="1" vflip="1" label="Led-244" idLabPos="-16,-24" labelrot="0" valLabPos="-16,20" valLabRot="0" Color="Yellow" Grounded="true" Threshold="2.4 V" MaxCurrent="30 mA" Resistance="0.6 Ω" />
+
+<item itemtype="Led" CircId="Led-247" mainComp="false" Show_id="false" Show_Val="false" Pos="-420,604" rotation="0" hflip="1" vflip="1" label="Led-247" idLabPos="-16,-24" labelrot="0" valLabPos="-16,20" valLabRot="0" Color="Yellow" Grounded="true" Threshold="2.4 V" MaxCurrent="30 mA" Resistance="0.6 Ω" />
+
+<item itemtype="Subcircuit" CircId="74HC76-248" mainComp="false" Show_id="true" Show_Val="false" Pos="-848,456" rotation="0" hflip="1" vflip="1" label="74HC76-248" idLabPos="0,-20" labelrot="0" valLabPos="-16,20" valLabRot="0" Input_High_V="2.5 V" Input_Low_V="2.5 V" Input_Imped="1e+09 Ω" Out_High_V="5 V" Out_Low_V="0 V" Out_Imped="40 Ω" Tpd_ps="10 ns" Tr_ps="3 ns" Tf_ps="4 ns" Logic_Symbol="true" />
+
+<item itemtype="Subcircuit" CircId="74HC76-249" mainComp="false" Show_id="true" Show_Val="false" Pos="-736,456" rotation="0" hflip="1" vflip="1" label="74HC76-249" idLabPos="0,-20" labelrot="0" valLabPos="-16,20" valLabRot="0" Input_High_V="2.5 V" Input_Low_V="2.5 V" Input_Imped="1e+09 Ω" Out_High_V="5 V" Out_Low_V="0 V" Out_Imped="40 Ω" Tpd_ps="10 ns" Tr_ps="3 ns" Tf_ps="4 ns" Logic_Symbol="true" />
+
+<item itemtype="Subcircuit" CircId="74HC76-250" mainComp="false" Show_id="true" Show_Val="false" Pos="-620,456" rotation="0" hflip="1" vflip="1" label="74HC76-250" idLabPos="0,-20" labelrot="0" valLabPos="-16,20" valLabRot="0" Input_High_V="2.5 V" Input_Low_V="2.5 V" Input_Imped="1e+09 Ω" Out_High_V="5 V" Out_Low_V="0 V" Out_Imped="40 Ω" Tpd_ps="10 ns" Tr_ps="3 ns" Tf_ps="4 ns" Logic_Symbol="true" />
+
+<item itemtype="Subcircuit" CircId="74HC76-251" mainComp="false" Show_id="true" Show_Val="false" Pos="-508,456" rotation="0" hflip="1" vflip="1" label="74HC76-251" idLabPos="0,-20" labelrot="0" valLabPos="-16,20" valLabRot="0" Input_High_V="2.5 V" Input_Low_V="2.5 V" Input_Imped="1e+09 Ω" Out_High_V="5 V" Out_Low_V="0 V" Out_Imped="40 Ω" Tpd_ps="10 ns" Tr_ps="3 ns" Tf_ps="4 ns" Logic_Symbol="true" />
+
+<item itemtype="Fixed Voltage" CircId="Fixed Voltage-273" mainComp="false" Show_id="false" Show_Val="false" Pos="-964,520" rotation="0" hflip="1" vflip="1" label="Fixed Voltage-273" idLabPos="-64,-24" labelrot="0" valLabPos="-16,8" valLabRot="0" Voltage="5 V" Out="false" />
+
 <item itemtype="Node" CircId="Node-17" mainComp="false" Pos="-700,-228" />
 
 <item itemtype="Node" CircId="Node-23" mainComp="false" Pos="-556,-180" />
@@ -151,6 +171,42 @@
 <item itemtype="Node" CircId="Node-193" mainComp="false" Pos="-420,-188" />
 
 <item itemtype="Node" CircId="Node-195" mainComp="false" Pos="-612,180" />
+
+<item itemtype="Node" CircId="Node-252" mainComp="false" Pos="-532,488" />
+
+<item itemtype="Node" CircId="Node-253" mainComp="false" Pos="-532,472" />
+
+<item itemtype="Node" CircId="Node-254" mainComp="false" Pos="-532,464" />
+
+<item itemtype="Node" CircId="Node-255" mainComp="false" Pos="-656,388" />
+
+<item itemtype="Node" CircId="Node-256" mainComp="false" Pos="-656,488" />
+
+<item itemtype="Node" CircId="Node-257" mainComp="false" Pos="-656,472" />
+
+<item itemtype="Node" CircId="Node-258" mainComp="false" Pos="-656,464" />
+
+<item itemtype="Node" CircId="Node-260" mainComp="false" Pos="-772,388" />
+
+<item itemtype="Node" CircId="Node-261" mainComp="false" Pos="-772,488" />
+
+<item itemtype="Node" CircId="Node-262" mainComp="false" Pos="-772,472" />
+
+<item itemtype="Node" CircId="Node-263" mainComp="false" Pos="-772,464" />
+
+<item itemtype="Node" CircId="Node-266" mainComp="false" Pos="-944,464" />
+
+<item itemtype="Node" CircId="Node-268" mainComp="false" Pos="-944,472" />
+
+<item itemtype="Node" CircId="Node-269" mainComp="false" Pos="-908,472" />
+
+<item itemtype="Node" CircId="Node-271" mainComp="false" Pos="-908,488" />
+
+<item itemtype="Node" CircId="Node-274" mainComp="false" Pos="-556,472" />
+
+<item itemtype="Node" CircId="Node-275" mainComp="false" Pos="-668,480" />
+
+<item itemtype="Node" CircId="Node-276" mainComp="false" Pos="-788,480" />
 
 <item itemtype="Connector" uid="Connector-19" startpinid="SwitchDip-16-switch0-pinN" endpinid="74HC151-9-S0" pointList="-652,-164,-628,-164" />
 
@@ -463,5 +519,89 @@
 <item itemtype="Connector" uid="Connector-631" startpinid="74XX83-181-S4" endpinid="Node-195-0" pointList="-612,164,-612,180" />
 
 <item itemtype="Connector" uid="Connector-632" startpinid="Node-195-2" endpinid="74HC194-140-D3" pointList="-612,180,-612,196" />
+
+<item itemtype="Connector" uid="Connector-779" startpinid="Node-252-1" endpinid="74HC76-251-1K" pointList="-532,488,-516,488" />
+
+<item itemtype="Connector" uid="Connector-781" startpinid="Node-252-2" endpinid="74HC76-251-1!R" pointList="-532,488,-532,496,-516,496" />
+
+<item itemtype="Connector" uid="Connector-782" startpinid="Node-253-1" endpinid="74HC76-251-1J" pointList="-532,472,-516,472" />
+
+<item itemtype="Connector" uid="Connector-784" startpinid="Node-253-2" endpinid="Node-252-0" pointList="-532,472,-532,488" />
+
+<item itemtype="Connector" uid="Connector-785" startpinid="Node-254-1" endpinid="74HC76-251-1!S" pointList="-532,464,-516,464" />
+
+<item itemtype="Connector" uid="Connector-787" startpinid="Node-254-2" endpinid="Node-253-0" pointList="-532,464,-532,472" />
+
+<item itemtype="Connector" uid="Connector-790" startpinid="Node-255-2" endpinid="Node-254-0" pointList="-656,388,-532,388,-532,464" />
+
+<item itemtype="Connector" uid="Connector-791" startpinid="Node-256-1" endpinid="74HC76-250-1K" pointList="-656,488,-628,488" />
+
+<item itemtype="Connector" uid="Connector-793" startpinid="Node-256-2" endpinid="74HC76-250-1!R" pointList="-656,488,-656,496,-628,496" />
+
+<item itemtype="Connector" uid="Connector-794" startpinid="Node-257-1" endpinid="74HC76-250-1J" pointList="-656,472,-628,472" />
+
+<item itemtype="Connector" uid="Connector-796" startpinid="Node-257-2" endpinid="Node-256-0" pointList="-656,472,-656,488" />
+
+<item itemtype="Connector" uid="Connector-797" startpinid="Node-258-1" endpinid="74HC76-250-1!S" pointList="-656,464,-628,464" />
+
+<item itemtype="Connector" uid="Connector-798" startpinid="Node-255-1" endpinid="Node-258-0" pointList="-656,388,-656,464" />
+
+<item itemtype="Connector" uid="Connector-799" startpinid="Node-258-2" endpinid="Node-257-0" pointList="-656,464,-656,472" />
+
+<item itemtype="Connector" uid="Connector-805" startpinid="Node-260-2" endpinid="Node-255-0" pointList="-772,388,-656,388" />
+
+<item itemtype="Connector" uid="Connector-806" startpinid="Node-261-1" endpinid="74HC76-249-1K" pointList="-772,488,-744,488" />
+
+<item itemtype="Connector" uid="Connector-808" startpinid="Node-261-2" endpinid="74HC76-249-1!R" pointList="-772,488,-772,496,-744,496" />
+
+<item itemtype="Connector" uid="Connector-809" startpinid="Node-262-1" endpinid="74HC76-249-1J" pointList="-772,472,-744,472" />
+
+<item itemtype="Connector" uid="Connector-811" startpinid="Node-262-2" endpinid="Node-261-0" pointList="-772,472,-772,488" />
+
+<item itemtype="Connector" uid="Connector-812" startpinid="Node-263-1" endpinid="74HC76-249-1!S" pointList="-772,464,-744,464" />
+
+<item itemtype="Connector" uid="Connector-813" startpinid="Node-260-1" endpinid="Node-263-0" pointList="-772,388,-772,464" />
+
+<item itemtype="Connector" uid="Connector-814" startpinid="Node-263-2" endpinid="Node-262-0" pointList="-772,464,-772,472" />
+
+<item itemtype="Connector" uid="Connector-820" startpinid="74HC76-248-1!S" endpinid="Node-266-1" pointList="-856,464,-944,464" />
+
+<item itemtype="Connector" uid="Connector-822" startpinid="Node-266-2" endpinid="Node-260-0" pointList="-944,464,-944,388,-772,388" />
+
+<item itemtype="Connector" uid="Connector-827" startpinid="Fixed Voltage-201-outnod" endpinid="Node-268-0" pointList="-944,488,-944,472" />
+
+<item itemtype="Connector" uid="Connector-828" startpinid="Node-268-2" endpinid="Node-266-0" pointList="-944,472,-944,464" />
+
+<item itemtype="Connector" uid="Connector-830" startpinid="74HC76-248-1J" endpinid="Node-269-0" pointList="-856,472,-908,472" />
+
+<item itemtype="Connector" uid="Connector-831" startpinid="Node-269-2" endpinid="Node-268-1" pointList="-908,472,-944,472" />
+
+<item itemtype="Connector" uid="Connector-835" startpinid="74HC76-248-1K" endpinid="Node-271-1" pointList="-856,488,-908,488" />
+
+<item itemtype="Connector" uid="Connector-836" startpinid="74HC76-248-1!R" endpinid="Node-271-0" pointList="-856,496,-908,496,-908,488" />
+
+<item itemtype="Connector" uid="Connector-844" startpinid="Node-271-2" endpinid="Node-269-1" pointList="-908,488,-908,472" />
+
+<item itemtype="Connector" uid="Connector-845" startpinid="Fixed Voltage-273-outnod" endpinid="74HC76-248-1!CP" pointList="-948,520,-884,520,-884,480,-856,480" />
+
+<item itemtype="Connector" uid="Connector-846" startpinid="74HC76-251-1Q" endpinid="Led-236-lPin" pointList="-468,472,-444,472,-444,572,-796,572,-796,608,-780,608" />
+
+<item itemtype="Connector" uid="Connector-847" startpinid="Node-274-1" endpinid="Led-240-lPin" pointList="-556,472,-556,588,-676,588,-676,604,-664,604" />
+
+<item itemtype="Connector" uid="Connector-848" startpinid="74HC76-250-1Q" endpinid="Node-274-0" pointList="-580,472,-556,472" />
+
+<item itemtype="Connector" uid="Connector-849" startpinid="Node-274-2" endpinid="74HC76-251-1!CP" pointList="-556,472,-544,472,-544,480,-516,480" />
+
+<item itemtype="Connector" uid="Connector-850" startpinid="Node-275-1" endpinid="Led-244-lPin" pointList="-668,480,-668,564,-572,564,-572,604,-552,604" />
+
+<item itemtype="Connector" uid="Connector-851" startpinid="74HC76-249-1Q" endpinid="Node-275-0" pointList="-696,472,-668,472,-668,480" />
+
+<item itemtype="Connector" uid="Connector-852" startpinid="Node-275-2" endpinid="74HC76-250-1!CP" pointList="-668,480,-628,480" />
+
+<item itemtype="Connector" uid="Connector-853" startpinid="Node-276-1" endpinid="Led-247-lPin" pointList="-788,480,-788,580,-448,580,-448,604,-436,604" />
+
+<item itemtype="Connector" uid="Connector-854" startpinid="74HC76-248-1Q" endpinid="Node-276-0" pointList="-808,472,-788,472,-788,480" />
+
+<item itemtype="Connector" uid="Connector-855" startpinid="Node-276-2" endpinid="74HC76-249-1!CP" pointList="-788,480,-744,480" />
 
 </circuit>

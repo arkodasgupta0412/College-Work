@@ -1,0 +1,14 @@
+Line No.  Memory Address  Machine Codes  Source
+-------------------------------------------------------------
+1         0x2000             3A 00 25       LDA 2500H
+2         0x2003             E6 0F          ANI 0FH
+3         0x2005             57             MOV D, A
+4         0x2006             3A 00 25       LDA 2500H
+5         0x2009             0F             RRC
+6         0x200A             0F             RRC
+7         0x200B             0F             RRC
+8         0x200C             0F             RRC
+9         0x200D             E6 0F          ANI 0FH
+10        0x200F             82             ADD D
+11        0x2010            32 50 25       STA 2550H
+12        0x2013            76             HLT

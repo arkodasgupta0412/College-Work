@@ -1,0 +1,26 @@
+Line No.  Memory Address   Machine Codes      Source
+-------------------------------------------------------------
+1         0x2000             16 00          MVI D, 00H
+2         0x2002             1E 00          MVI E, 00H
+3                                        
+4         0x2004             3A 00 22       LDA 2200H
+5         0x2007             4F             MOV C, A
+6         0x2008             21 00 25       LXI H, 2500H
+7                                        
+8                                        LOOP:
+9         0x200B             7E               MOV A, M
+10        0x200C             83               ADD E
+11        0x200D             5F               MOV E, A
+12        0x200E             23               INX H
+13        0x200F             D2 13 00         JNC CARRY
+14        0x2012            14               INR D
+15                                       
+16                                       CARRY:
+17        0x2013            0D               DCR C
+18        0x2014            C2 0B 00         JNZ LOOP
+19                                       
+20        0x2017            7B             MOV A, E
+21        0x2018            32 00 23       STA 2300H
+22        0x201B            7A             MOV A, D 
+23        0x201C            32 01 23       STA 2301H
+24        0x201F            76             HLT

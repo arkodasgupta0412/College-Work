@@ -1,0 +1,13 @@
+  CODE                 Address    Machine Code
+
+MVI C, 00H		2000:     0E 00
+LDA 2200H		2002:     3A 00 22
+MOV B, A		2005:     47
+LDA 2201H		2006:     3A 01 22
+ADD B			2009:     80
+JNC SKIP		200A:     D2 0E 00
+INR C			200D:     0C
+SKIP: STA 2202H		200E:     32 02 22
+MOV A, C		2011:     79
+STA 2203H		2012:     32 03 22
+HLT			2015:     76
