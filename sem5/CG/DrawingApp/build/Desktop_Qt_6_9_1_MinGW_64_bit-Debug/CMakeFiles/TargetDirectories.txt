@@ -1,0 +1,9 @@
+D:/personal/btech-JU/assignments/sem5/Qt/DrawingApp/build/Desktop_Qt_6_9_1_MinGW_64_bit-Debug/CMakeFiles/DrawingApp.dir
+D:/personal/btech-JU/assignments/sem5/Qt/DrawingApp/build/Desktop_Qt_6_9_1_MinGW_64_bit-Debug/CMakeFiles/edit_cache.dir
+D:/personal/btech-JU/assignments/sem5/Qt/DrawingApp/build/Desktop_Qt_6_9_1_MinGW_64_bit-Debug/CMakeFiles/rebuild_cache.dir
+D:/personal/btech-JU/assignments/sem5/Qt/DrawingApp/build/Desktop_Qt_6_9_1_MinGW_64_bit-Debug/CMakeFiles/list_install_components.dir
+D:/personal/btech-JU/assignments/sem5/Qt/DrawingApp/build/Desktop_Qt_6_9_1_MinGW_64_bit-Debug/CMakeFiles/install.dir
+D:/personal/btech-JU/assignments/sem5/Qt/DrawingApp/build/Desktop_Qt_6_9_1_MinGW_64_bit-Debug/CMakeFiles/install/local.dir
+D:/personal/btech-JU/assignments/sem5/Qt/DrawingApp/build/Desktop_Qt_6_9_1_MinGW_64_bit-Debug/CMakeFiles/install/strip.dir
+D:/personal/btech-JU/assignments/sem5/Qt/DrawingApp/build/Desktop_Qt_6_9_1_MinGW_64_bit-Debug/CMakeFiles/DrawingApp_autogen_timestamp_deps.dir
+D:/personal/btech-JU/assignments/sem5/Qt/DrawingApp/build/Desktop_Qt_6_9_1_MinGW_64_bit-Debug/CMakeFiles/DrawingApp_autogen.dir

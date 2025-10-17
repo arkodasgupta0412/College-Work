@@ -1,0 +1,11 @@
+debug/gridscene.o
+debug/gridview.o
+debug/gridwidget.o
+debug/main.o
+debug/mainwindow.o
+debug/my_label.o
+debug/moc_gridscene.o
+debug/moc_gridview.o
+debug/moc_gridwidget.o
+debug/moc_mainwindow.o
+debug/moc_my_label.o

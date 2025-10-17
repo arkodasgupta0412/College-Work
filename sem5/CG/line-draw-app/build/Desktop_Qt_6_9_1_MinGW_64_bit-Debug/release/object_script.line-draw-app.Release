@@ -1,0 +1,11 @@
+release/gridscene.o
+release/gridview.o
+release/gridwidget.o
+release/main.o
+release/mainwindow.o
+release/my_label.o
+release/moc_gridscene.o
+release/moc_gridview.o
+release/moc_gridwidget.o
+release/moc_mainwindow.o
+release/moc_my_label.o
